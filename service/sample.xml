@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<FeatureCollection xmlns="http://www.opengis.net/bxfs" xmlns:gml="http://www.opengis.net/gml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opengis.net/wfss bxfs.xsd" version="0.6">
+	<Properties>
+		<Property name="name" />
+		<Property name="id" />
+		<Property name="wkt" />
+		<Property name="result" />
+	</Properties>
+	#ftr#
+</FeatureCollection>

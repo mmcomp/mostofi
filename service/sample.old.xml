@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<FeatureCollection xmlns="http://www.opengis.net/bxfs" xmlns:gml="http://www.opengis.net/gml"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.opengis.net/wfss bxfs.xsd" version="0.6">
+	<Properties>
+		<!-- including type attribute is optional in results -->
+		<Property name="agency" type="string" />
+		<Property name="station" />
+		<Property name="lat" type="double" />
+		<Property name="lon" type="double" />
+		<Property name="huc" />
+		<Property name="station_type" />
+		<Property name="station_depth" />
+		<Property name="description" />
+		<Property name="result_value" />
+		<Property name="r" />
+		<Property name="param" />
+		<Property name="start_date" type="timestamp" />
+		<Property name="end_date" type="timestamp" />
+		<Property name="sample_depth" />
+		<Property name="umk" />
+		<Property name="replicate_number" />
+		<Property name="cs" />
+		<Property name="composite_grab_number" />
+		<Property name="cm" />
+		<Property name="primary_activity_category" />
+		<Property name="secondary_activity_category" />
+	</Properties>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>943000E-3 </Val>
+		<Val />
+		<Val>00008</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>198100E-2 </Val>
+		<Val />
+		<Val>00026</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>197000E-3 </Val>
+		<Val />
+		<Val>00340</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>518000E-3 </Val>
+		<Val />
+		<Val>00500</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>154000E-3 </Val>
+		<Val />
+		<Val>00505</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>122000E-3 </Val>
+		<Val />
+		<Val>00530</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>860000E-4 </Val>
+		<Val />
+		<Val>00535</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>380000E-5 </Val>
+		<Val />
+		<Val>00610</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>145000E-4 </Val>
+		<Val />
+		<Val>00625</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>260000E-6 </Val>
+		<Val />
+		<Val>00630</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>116000E-4 </Val>
+		<Val />
+		<Val>00665</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>200000E-4 </Val>
+		<Val>K</Val>
+		<Val>01027</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>800000E-4 </Val>
+		<Val>K</Val>
+		<Val>01034</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>410000E-4 </Val>
+		<Val />
+		<Val>01042</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>800000E-4 </Val>
+		<Val>K</Val>
+		<Val>01051</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012A</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/TREATD/OUTFL/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>190000E-3 </Val>
+		<Val />
+		<Val>01092</Val>
+		<Val>1976-04-19 08:30:00</Val>
+		<Val>1976-04-20 08:30:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012B</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/NTRTMT/INTAKE/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>942000E-3 </Val>
+		<Val />
+		<Val>00008</Val>
+		<Val>1976-04-19 08:00:00</Val>
+		<Val>1976-04-20 08:00:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012B</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/NTRTMT/INTAKE/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>198100E-2 </Val>
+		<Val />
+		<Val>00026</Val>
+		<Val>1976-04-19 08:00:00</Val>
+		<Val>1976-04-20 08:00:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012B</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/NTRTMT/INTAKE/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>537000E-3 </Val>
+		<Val />
+		<Val>00340</Val>
+		<Val>1976-04-19 08:00:00</Val>
+		<Val>1976-04-20 08:00:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+	<Feature>
+		<Val>1114PEST</Val>
+		<Val>210012B</Val>
+		<Val>37.091667</Val>
+		<Val>-85.306667</Val>
+		<Val>05110001</Val>
+		<Val>/TYPA/MUN/NTRTMT/INTAKE/NONAMB/PIPE</Val>
+		<Val>0</Val>
+		<Val>none</Val>
+		<Val>620000E-3 </Val>
+		<Val />
+		<Val>00500</Val>
+		<Val>1976-04-19 08:00:00</Val>
+		<Val>1976-04-20 08:00:00</Val>
+		<Val />
+		<Val />
+		<Val />
+		<Val>A</Val>
+		<Val />
+		<Val>B</Val>
+		<Val>Temporal Composite</Val>
+		<Val>Water</Val>
+	</Feature>
+</FeatureCollection>

@@ -1,0 +1,19 @@
+/**/
+
+.col{
+  text-align: center;
+}
+#geolocation{
+  background-color: #121212;
+  color: green;
+  padding: 10px;
+}
+.reg , .loading{
+  display: none;
+}
+.t{
+  border:1pt solid #d2d1d1;
+}
+.star{
+  color:#fff;
+}

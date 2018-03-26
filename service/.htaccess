@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^api/([^/.]+)/([^/.]+) index.php?function=$1&params=$2 [NC]

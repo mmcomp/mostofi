@@ -1,0 +1,485 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="js/conf.js"></script>
+  <script src="js/db.js"></script>
+  <script src="js/gps.js"></script>
+  <script src="js/net.js"></script>
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <ons-template id="tab1.html">
+      <ons-page id="first-page">
+        <p style="text-align: center;">
+          صفحه اصلی
+        </p>
+        <div style="margin:100pt 10pt 100pt 10pt;">
+        <p>
+        <ons-button modifier="large--cta" id="start" onclick="getCurrentLocation();"><ons-ripple></ons-ripple>شروع</ons-button>
+        </p>
+        </div>
+        <div style="margin:100pt 10pt 100pt 10pt;">
+        <p>
+        <ons-button modifier="large--cta" id="stop" disabled onclick="stopLocation();">پایان</ons-button>
+        </p>
+        </div>
+        <!--<ons-button onclick="gotoUser();">کاربر</ons-button>-->
+        <!--<ons-row align="center">
+          <ons-col class="col">-->
+          <!--</ons-col>
+        </ons-row>
+        <br/>
+        <ons-row align="center">
+          <ons-col class="col">-->
+          <!--</ons-col>
+        </ons-row>-->
+        <!--<div id="geolocation"></div>-->
+      </ons-page>
+    </ons-template>
+    <ons-template id="tab4.html">
+      <ons-page id="second-page">
+        <p style="text-align: center;">
+          آرشیو مسیر
+        </p>
+        <p style="margin-top: 30px;text-align: center;">
+          <ons-button onclick="showDates(true);">نمایش </ons-button>
+        </p>
+        <p style="margin-top: 30px;text-align: center;" class="loading">
+          <ons-icon size="50px" spin icon="md-spinner"></ons-icon>
+        </p>
+        <div id="dates-all"></div>
+        <div id="archiveMap1" style="height:350px"></div>
+      </ons-page>
+    </ons-template>
+    <ons-template id="tab2.html">
+      <ons-page id="third-page">
+        <p style="text-align: center;">
+          مسیر
+        </p>
+        <p style="margin-top: 30px;text-align: center;">
+          <ons-button onclick="showDates(false);">نمایش تایید نشده</ons-button>
+          <ons-button onclick="showDates(true);">نمایش تایید شده</ons-button>
+        </p>
+        <p style="margin-top: 30px;text-align: center;" class="loading">
+          <ons-icon size="50px" spin icon="md-spinner"></ons-icon>
+        </p>
+        <p style="margin-top: 30px;text-align: center;font-size:30px;font-weight:bold;">
+          <span>امتیاز شما : </span>
+          <span id="emtiaz" style="color:red;">-</span>
+          <ons-icon icon="fa-star" class="star star-1 star-2 star-3 star-4 star-5"></ons-icon>
+          <ons-icon icon="fa-star" class="star star-2 star-3 star-4 star-5"></ons-icon>
+          <ons-icon icon="fa-star" class="star star-3 star-4 star-5"></ons-icon>
+          <ons-icon icon="fa-star" class="star star-4 star-5"></ons-icon>
+          <ons-icon icon="fa-star" class="star star-5"></ons-icon>
+        </p>
+        <div id="dates"></div>
+      </ons-page>
+    </ons-template>
+    <ons-template id="tab3.html">
+      <ons-page id="fourth-page">
+        <div id="demoMap" style="height:250px;"></div>
+        <p style="text-align: center;">
+          اطلاعات کاربر
+        </p>
+        <p style="text-align: center;direction:rtl;">
+          <span style="color:red">*</span><ons-input id="username" modifier="underbar" placeholder="نام کاربری" float ></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;">
+          <span style="color:red">*</span><ons-input id="password" modifier="underbar" type="password" placeholder="رمز عبور" float ></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <span style="color:red">*</span><ons-input id="repassword" modifier="underbar" type="password" placeholder="تکرار رمز عبور" float ></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <ons-input id="fname" modifier="underbar" placeholder="نام" float ></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <span style="color:red">*</span><ons-input id="lname" modifier="underbar" placeholder="نام خانوادگی" float ></ons-input>
+        </p>
+        <p style="text-align: center;" class="reg">
+          <span style="color:red">*</span>
+          <label for="gender-1" class="center">
+            زن
+          </label>
+          <label class="left">
+            <ons-input name="gender" type="radio" input-id="gender-1" checked></ons-input>
+          </label>
+          <label for="gender-0" class="center">
+            مرد
+          </label>
+          <label class="left">
+            <ons-input name="gender" type="radio" input-id="gender-0"></ons-input>
+          </label>
+        </p>
+        <p style="text-align: center;" class="reg">
+          <span style="color:red">*</span><ons-input id="age" modifier="underbar" placeholder="سن" float></ons-input>
+        </p>
+        <p style="text-align: center;" class="reg">
+          <span style="color:red">*</span>
+          شغل
+          <br/>
+          <ons-select id="job">
+            <option value="1">کارمند</option>
+            <option value="2">شغل آزاد</option>
+            <option value="3">دانشجو</option>
+            <option value="4">دانش آموز</option>
+            <option value="5">خانه دار</option>
+            <option value="6">بیکار / بازنشسته</option>
+            <option value="7">مغازه دار یا فروشنده</option>
+            <option value="8">استاد،فرهنگی،روحانی</option>
+            <option value="9">پزشک/پرستار</option>
+            <option value="10">راننده-مسافرکش</option>
+            <option value="11">کارگر/استادکار</option>
+            <option value="12">کارمنددولتی/خصوصی</option>
+            <option value="13">نظامی</option>
+            <option value="14">کشاورز</option>
+            <option value="15">خردسال</option>
+            <option value="16">سایر</option>
+          </ons-select>
+        </p>
+        
+        <p style="text-align: center;" class="reg">
+          <span style="color:red">*</span>
+          مالکیت وسیله نقلیه
+          <br/>
+          <ons-select id="car">
+            <option value="2">دوچرخه</option>
+            <option value="3">خودرو شخصی</option>
+            <option value="4">اتوبوس واحد</option>
+            <option value="22">اتوبوس غیرواحد</option>
+            <option value="23">مینی بوس</option>
+            <option value="5">مترو</option>
+            <option value="7">موتورسیکلت</option>
+            <option value="8">تاکسی</option>
+            <option value="21">مسافرکش</option>
+            <option value="9">وانت</option>
+            <option value="27">کامیونت</option>
+            <option value="24">کامیون دومحور</option>
+            <option value="25">کامیون سه محور</option>
+            <option value="26">تریلی</option>
+          </ons-select>
+        </p>
+        <p style="text-align: center;" class="reg">
+          <ons-input id="benzin" modifier="underbar" placeholder="مصرف خودرو" float></ons-input>
+        </p>
+        <p style="text-align: center;" class="reg">
+          <ons-input id="cell" modifier="underbar" placeholder="تلفن همراه" float></ons-input>
+        </p>
+        
+        <p style="text-align: center;" class="reg">
+          <ons-input id="email" modifier="underbar" placeholder="پست الکترونیک" float></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="address" type="hidden" />
+          <label class="center">
+            منزل&nbsp;&nbsp;&nbsp;&nbsp;
+          </label>
+          <ons-button onclick="selectFeild('address');">نقشه</ons-button>
+        </p>
+        
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="work1" type="hidden" />
+          <label class="center">
+            کار&nbsp;۱&nbsp;&nbsp;&nbsp;&nbsp;
+          </label>
+          <ons-button onclick="selectFeild('work1');">نقشه</ons-button>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="work2" type="hidden" />
+          <label class="center">
+            کار&nbsp;۲&nbsp;&nbsp;&nbsp;&nbsp;
+          </label>
+          <ons-button onclick="selectFeild('work2');">نقشه</ons-button>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="school1" type="hidden" />
+          <label class="center">
+            محل تحصیل
+          </label>
+          <ons-button onclick="selectFeild('school1');">نقشه</ons-button>
+        </p>
+        <!-- 
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="school2" type="hidden" />
+          <label class="center">
+            موسسه آموزشی
+          </label>
+          <ons-button onclick="selectFeild('school2');">نقشه</ons-button>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="shop1" type="hidden" />
+          <label class="center">
+          محل فروشگاهیی که در هفته بیش از دوبار به آن مراجعه میکنید
+          <br/>
+          فروشگاه1
+          </label>
+          <ons-button onclick="selectFeild('shop1');">نقشه</ons-button>
+        </p>
+
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <input id="shop2" type="hidden" />
+          <label class="center">
+            فروشگاه2
+          </label>
+          <ons-button onclick="selectFeild('shop2');">نقشه</ons-button>
+        </p>
+        -->
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <label class="center">
+        آیا برای مسیر یابی و یا استفاده از وسایل نقلیه از موبایل اپلیکیشن استفاده می کنید ؟
+          </label>
+          <br/>
+          <ons-select id="use_car">
+            <option value="1">خیر</option>
+            <option value="2">بله</option>
+          </ons-select>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <label class="center">
+        آیا سرپرست خانواده هستید ؟
+          </label>
+          <br/>
+          <ons-select id="sarparast">
+            <option value="1">خیر</option>
+            <option value="2">بله</option>
+          </ons-select>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <label class="center">
+            تعداد اعضای خانواده شما چند نفر است؟
+          </label>
+          <br/>
+          <ons-input id="tedad_khanevade" modifier="underbar" placeholder="تعداد خانواده" float></ons-input>
+        </p>
+        <p style="text-align: center;direction:rtl;" class="reg">
+          <label class="center">
+        به طور معمول برای سفر شهری شغلی یا تحصیلی از چه وسیله ای استفاده می کنید ؟ 
+          </label>
+          <br/>
+          <ons-select id="vasile">
+            <option value="1">خودروی شخصی</option>
+            <option value="2">تاکسی</option>
+            <option value="3">وسیله حمل و نقل عمومی</option>
+            <option value="4">دوچرخه</option>
+            <option value="5">موتور سیکلت</option>
+            <option value="6">پیاده</option>
+            <option value="7">سرویس شرکت یا مدرسه</option>
+          </ons-select>
+        </p>
+        
+        <p style="margin-top: 30px;text-align: center;" class="loading">
+          <ons-icon size="50px" spin icon="md-spinner"></ons-icon>
+        </p>
+        <p style="margin-top: 30px;text-align: center;">
+          <ons-button onclick="login()">ورود</ons-button>
+          <ons-button onclick="register()" modifier="light">ثبت نام</ons-button>
+        </p>
+      </ons-page>
+    </ons-template>
+
+  <ons-page>
+    <ons-toolbar>
+      <div class="center" id="toolbar-title">باچی</div>
+      <div class="left"><img src="img/bachi.png" style="height:45px" /></div>
+    </ons-toolbar>
+    <ons-tabbar position="auto" id="tbbar">
+      <ons-tab icon="md-home" page="tab1.html" active>
+      </ons-tab>
+      <ons-tab icon="md-map" page="tab2.html">
+      </ons-tab>
+      <!--<ons-tab icon="fa-map" page="tab4.html">
+      </ons-tab>-->
+      <ons-tab icon="ion-person" page="tab3.html">
+      </ons-tab>
+    </ons-tabbar>
+  </ons-page>
+  <ons-modal id="m1" direction="up" style="background:#fff;">
+    <ons-toolbar style="margin-top:20pt">
+      <div class="left"><ons-toolbar-button onclick="modal_back('m1');">Back</ons-toolbar-button></div>
+      <div class="center" id="m1_title">AAA</div>
+    </ons-toolbar>
+    <div id="archiveMap" style="height:350px;margin-top:20pt;"></div>
+    <p id="m1_loading" style="color:#000;"><ons-icon icon="md-spinner" size="28px" spin></ons-icon></p>
+    <div id="travel_mode" style="color:#000;"></div>
+  </ons-modal>
+<!--<ons-page id="helloworld-page">
+  <ons-toolbar>
+    <div class="center"></div>
+    <div class="right">
+      <ons-toolbar-button>
+        <ons-icon icon="ion-navicon, material:md-menu"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <p style="text-align: center">
+    <ons-button>Click me!</ons-button>
+  </p>
+</ons-page>-->
+  <script>
+    function showModal(mod_id,title) {
+      var modal = document.querySelector('#'+mod_id);
+      // $("#archiveMap").html('');
+      $("#travel_mode").html('');
+      $("#"+mod_id+"_title").html(title);
+      $("#"+mod_id+"_loading").show();
+      modal.show();
+    }
+    function modal_back(mod_id){
+      var modal = document.querySelector('#'+mod_id);
+      modal.hide();
+    }
+    var user_id=0;
+    var myTabbar = document.querySelector("ons-tabbar");
+    // var bgGeo;
+    ons.ready(function() {
+      try{
+        var cb = cordova.plugins.backgroundMode;
+        
+        cb.enable();
+        /*
+        cordova.plugins.backgroundMode.overrideBackButton();
+        cordova.plugins.backgroundMode.excludeFromTaskList();
+        cordova.plugins.backgroundMode.on('activate', function() {
+           cordova.plugins.backgroundMode.disableWebViewOptimizations();
+           cordova.plugins.backgroundMode.moveToForeground();
+        });
+        cordova.plugins.backgroundMode.setDefaults({
+            title: 'BaChi',
+            text: 'BaChi is working',
+            icon: 'icon' // this will look for icon.png in platforms/android/res/drawable|mipmap
+            color: 'F14F4D' // hex format like 'F14F4D'
+            resume: false,
+            hidden: false,
+            bigText: false
+        });
+        */
+        // cb.setDefaults({
+        //     title: 'BaChi',
+        //     text: 'BaChi is working',
+        //     icon: 'icon' // this will look for icon.png in platforms/android/res/drawable|mipmap
+        //     color: 'F14F4D' // hex format like 'F14F4D'
+        //     resume: true,
+        //     hidden: false,
+        //     bigText: false
+        // });
+        cb.on('activate', function() {
+           cb.disableWebViewOptimizations();
+           // setTimeout(function(){
+           //   cb.moveToForeground();
+           // },1000);
+        });
+        // alert(cb.isActive());
+      }catch(e){
+        // alert(e.message);
+      }
+      // cordova.plugins.backgroundMode.setDefaults({
+      //     title: "باچی",
+      //     text: "باچی فعال است",
+      //     icon: 'icon', // this will look for icon.png in platforms/android/res/drawable|mipmap
+      //     color: 'F14F4D', // hex format like 'F14F4D'
+      //     resume: true,
+      //     hidden: true,
+      //     bigText: false
+      // })
+      // cordova.plugins.backgroundMode.enable();
+      // cordova.plugins.backgroundMode.on('activate', function() {
+      //    cordova.plugins.backgroundMode.disableWebViewOptimizations(); 
+      // });
+      /*
+      //Make sure to get at least one GPS coordinate in the foreground before starting background services
+      navigator.geolocation.getCurrentPosition(function() {
+       alert("Succesfully retreived our GPS position, we can now start our background tracker.");
+      }, function(error) {
+       alert(error);
+      });
+
+      //Get plugin
+      var bgLocationServices =  window.plugins.backgroundLocationServices;
+      
+      //Congfigure Plugin
+      bgLocationServices.configure({
+           //Both
+           desiredAccuracy: 20, // Desired Accuracy of the location updates (lower means more accurate but more battery consumption)
+           distanceFilter: 5, // (Meters) How far you must move from the last point to trigger a location update
+           debug: true, // <-- Enable to show visual indications when you receive a background location update
+           interval: 2000, // (Milliseconds) Requested Interval in between location updates.
+           useActivityDetection: false, // Uses Activitiy detection to shut off gps when you are still (Greatly enhances Battery Life)
+           
+           //Android Only
+           notificationTitle: 'BG Plugin', // customize the title of the notification
+           notificationText: 'Tracking', //customize the text of the notification
+           fastestInterval: 5000 // <-- (Milliseconds) Fastest interval your app / server can handle updates
+           
+      });
+      
+      //Register a callback for location updates, this is where location objects will be sent in the background
+      bgLocationServices.registerForLocationUpdates(function(location) {
+           // alert("We got an BG Update" + JSON.stringify(location));
+           sendBGTest(location);
+      }, function(err) {
+           alert("Error: Didnt get an update");
+           alert(err);
+      });
+      
+      //Register for Activity Updates
+      
+      //Uses the Detected Activies / CoreMotion API to send back an array of activities and their confidence levels
+      //See here for more information:
+      //https://developers.google.com/android/reference/com/google/android/gms/location/DetectedActivity
+      bgLocationServices.registerForActivityUpdates(function(activities) {
+           alert("We got an activity update" + activities);
+      }, function(err) {
+           alert("Error: Something went wrong");
+           alert(err);
+      });
+      
+      //Start the Background Tracker. When you enter the background tracking will start, and stop when you enter the foreground.
+      bgLocationServices.start();
+      */
+      
+      myTabbar.addEventListener("prechange", function(e) {
+
+        if((user_id<=0 && e.index!=2)||(user_id>0 && e.index==2)){
+          e.cancel();
+        }
+        if(user_id>0 && e.index==2){
+          if(confirm('آیا می خواهید کاربری شما خارج شود؟')){
+            logout();
+            user_id=-1;
+            myTabbar.setActiveTab(2);
+          }
+        }
+        if(user_id>0 && e.index==1){
+          $(".star").css('color','#fff');
+          $(".loading").show();
+          getEmtiaz(function(dt){
+            $(".loading").hide();
+            if(dt){
+              $("#emtiaz").text(dt.items[0].emtiaz);
+              var emtz = parseInt(dt.items[0].emtiaz, 10)/20;
+              emtz = parseInt(emtz, 10);
+              if(emtz>5){
+                emtz = 5;
+              }
+              $(".star-"+emtz).css('color','yellow');
+            }
+          });
+        }
+      });
+      createDB();
+      sendPoint();
+    });
+  </script>
+  <script src="js/OpenLayers.js"></script>
+  <script src="js/map.js"></script>
+</body>
+</html>
